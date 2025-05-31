@@ -1,6 +1,4 @@
-// src/types/next-auth.d.ts
-
-import NextAuth, { DefaultSession } from "next-auth";
+import type { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
   interface Session {
@@ -8,10 +6,7 @@ declare module "next-auth" {
     refreshToken?: string;
     user: {
       id: string;
-      name?: string | null;
-      email?: string | null;
-      // các trường mặc định khác bạn có thể thêm nếu cần
-    };
+    } & DefaultSession["user"];
   }
 
   interface User {
@@ -23,12 +18,6 @@ declare module "next-auth" {
   interface JWT {
     accessToken?: string;
     refreshToken?: string;
-    id?: string;
-  }
-}
-
-declare module "next-auth/jwt" {
-  interface JWT {
     id?: string;
   }
 }

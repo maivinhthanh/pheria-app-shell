@@ -38,10 +38,10 @@ export default function Header() {
       if (!!res) {
         signOut({ callbackUrl: "/" });
       } else {
-        alert("Logout failed");
+        console.log("Logout failed");
       }
-    } catch (error) {
-      alert("Logout error");
+    } catch (e) {
+      console.log("Logout error", e);
     }
   };
 
