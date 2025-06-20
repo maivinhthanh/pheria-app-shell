@@ -12,5 +12,5 @@ export default withAuth({
 
 // Protect all routes except /login and /api/auth
 export const config = {
-  matcher: ["/editor/:path*", "/library/:path*"], // add more protected routes here
+  matcher: ["/editor/:path*"], // add more protected routes here
 };

@@ -1,8 +1,19 @@
-export default function LibraryPage() {
+'use client'
+
+import { useEffect } from 'react'
+
+export default function Page() {
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = 'http://localhost:4173/remote-app.js'
+    script.type = 'module'
+    document.head.appendChild(script)
+  }, [])
+
   return (
-    <iframe
-      src="https://library.example.com"
-      style={{ width: '100%', height: '100vh', border: 'none' }}
-    />
-  );
+    <main>
+      <h1>Host App</h1>
+      <remote-app></remote-app>
+    </main>
+  )
 }
